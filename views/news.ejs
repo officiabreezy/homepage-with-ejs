@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>News</title>
+</head>
+<body>
+  <h1>News</h1>
+  <a href="/news/add">Add News</a>
+  <ul>
+    <% news.forEach(function(article) { %>
+      <li>
+        <h2><%= article.title %></h2>
+        <p><%= article.content %></p>
+        <a href="/news/edit/<%= article._id %>">Edit</a>
+        <form method="POST" action="/news/delete/<%= article._id %>" style="display:inline;">
+          <input type="submit" value="Delete">
+        </form>
+      </li>
+    <% }); %>
+  </ul>
+</body>
+</html>
